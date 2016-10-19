@@ -21,6 +21,10 @@
   (reagent/adapt-react-class (or (aget js/MaterialUISvgIcons (name iname))
                                  (aget js/MaterialUISvgIcons "ContentAdd"))))
 
+(defn material-class
+  [iname]
+  (aget js/MaterialUI (name iname)))
+
 (defonce colors
   (let [cos (js->clj
               (-> js/MaterialUIStyles

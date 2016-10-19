@@ -1,0 +1,17 @@
+
+.barra {
+    float: left;
+    width: 20%;
+    max-width: 20%;
+}
+
+.menu  > * {
+    margin-left: 6px;
+    max-width: 90%;
+    width: 90%;
+}
+.contenido {
+    float: left;
+    margin-left: 5%;
+
+}
