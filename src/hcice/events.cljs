@@ -14,6 +14,11 @@
   :cambiar
   (fn [_ [_ ndb]] ndb)) 
 
+(re-frame/reg-event-db
+  :assoc-in
+  (fn [db [_ path valor]]
+    (assoc-in db path valor)))
+
 
 (re-frame/reg-event-db
  :seleccionar-seccion

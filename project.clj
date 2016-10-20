@@ -8,9 +8,12 @@
                  [binaryage/devtools "0.8.2"]
                  ;[devcards "0.2.2"]
                  [figwheel-sidecar "0.5.8" :scope "test"]
-                 [re-frame "0.8.0" ]; :exclusions [cljsjs/react]]
+                 [re-frame "0.8.0" :exclusions [cljsjs/react]]
                  [cljsjs/material-ui "0.16.0-0"] 
+                 [cljsjs/react-dom "15.3.1-0"]
+                 [cljsjs/react-dom-server "15.3.1-0"]
                  [lein-light-nrepl "0.3.3"]
+
                  ;[bidi "2.0.12"]
                  ]
 

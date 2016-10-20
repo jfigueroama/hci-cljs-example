@@ -3,6 +3,7 @@
     float: left;
     width: 20%;
     max-width: 20%;
+    padding-left: 6px;
 }
 
 .menu  > * {

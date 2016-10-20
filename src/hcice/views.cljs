@@ -19,7 +19,8 @@
 
 (defn vista-principal
   []
-  (let [seccion (subscribe [:seccion])]
+  (let [seccion (subscribe [:seccion])
+        drawer (subscribe [:drawer])]
     (fn []
       [:div.principal
        [:div.cabeza
@@ -27,8 +28,12 @@
         ]
        [:div.cuerpo
         [:div.barra
+         {:on-click #(dispatch [:assoc-in [:drawer] true ])}
          [MuiThemeProvider
           {:muiTheme (mui-theme {:textColor (:indigoA400 colors) :primary1Color "green"})}
+          [Drawer {:className "barra" :open @drawer
+                   :on-mouse-over #(dispatch [:assoc-in [:drawer] false])}
+
           [List
            [ListItem {:primaryText "Introduccion"
                        :on-click #(info :intro)}]
@@ -42,7 +47,7 @@
                       ;(as-element [ListItem {:key 4 :primaryText "sub4"}])
                       (into [] (for [x (range 1 10)]
                                  ^{:key x} (as-element [ListItem {:key x :primaryText (str "sub" x)}])))
-                      }] ]]]
+                      }] ]]]]
         [:div.contenido
          "Contenido"
          ]

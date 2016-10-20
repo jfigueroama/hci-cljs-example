@@ -1,4 +1,5 @@
 (ns hcice.db)
 
-(defonce db
-  {:seccion :intro})
+(def db
+  {:seccion :intro
+   :drawer true})
