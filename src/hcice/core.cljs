@@ -1,7 +1,7 @@
 (ns hcice.core
   (:require [reagent.core :as reagent]
             [re-frame.core :as re-frame
-             :refer [reg-sub subscribe register-sub dispatch] ]
+             :refer [reg-sub subscribe register-sub dispatch]]
             [devtools.core :as devtools]
             [reagent-material-ui.core :as mui
              :refer [MuiThemeProvider AppBar AutoComplete Avatar Badge BottomNavigation
@@ -14,11 +14,13 @@
                      StepButton StepContent StepLabel Stepper Subheader SvgIcon Tab
                      Tabs Table TableBody TableFooter TableHeader TableHeaderColumn
                      TableRow TableRowColumn TimePicker TextField Toggle Toolbar
-                     ToolbarGroup ToolbarSeparator ToolbarTitle ]]
+                     ToolbarGroup ToolbarSeparator ToolbarTitle]]
             [hcice.helpers :as helpers
              :refer [info colors color Icon svg-icon svg-icons]]
             [hcice.events] [hcice.db] [hcice.subs]
             [hcice.views :as views :refer [hola vista-principal]]))
+
+(defn hola [x] (str "hola " x))
 
 (defn mount-root []
   (reagent/render [vista-principal]

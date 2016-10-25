@@ -1,3 +1,4 @@
 figwheel*
 tmp/
 target/
+*.edn
