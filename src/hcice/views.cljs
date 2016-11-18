@@ -2,19 +2,25 @@
   (:require [reagent.core :as reagent :refer [as-element]]
             [re-frame.core :as re-frame :refer [subscribe dispatch] ]
             [reagent-material-ui.core :as mui
-             :refer [MuiThemeProvider AppBar AutoComplete Avatar Badge BottomNavigation
-                     BottomNavigationItem Card CardActions CardHeader CardMedia CardText 
-                     CardTitle Checkbox Chip CircularProgress DatePicker Dialog Divider
-                     Drawer DropDownMenu FlatButton FloatingActionButton GridList
-                     GridTile IconButton IconMenu LinearProgress List ListItem
-                     Menu MenuItem Paper Popover RadioButton RadioButtonGroup
-                     RaisedButton RefreshIndicator SelectField Slider Snackbar Step
-                     StepButton StepContent StepLabel Stepper Subheader SvgIcon Tab
-                     Tabs Table TableBody TableFooter TableHeader TableHeaderColumn
-                     TableRow TableRowColumn TimePicker TextField Toggle Toolbar
+             :refer [MuiThemeProvider AppBar AutoComplete Avatar
+                     Badge BottomNavigation
+                     BottomNavigationItem Card CardActions CardHeader
+                     CardMedia CardText 
+                     CardTitle Checkbox Chip CircularProgress
+                     DatePicker Dialog Divider
+                     Drawer DropDownMenu FlatButton FloatingActionButton
+                     GridList GridTile IconButton IconMenu LinearProgress
+                     List ListItem Menu MenuItem Paper Popover RadioButton
+                     RadioButtonGroup RaisedButton RefreshIndicator
+                     SelectField Slider Snackbar Step StepButton
+                     StepContent StepLabel Stepper Subheader SvgIcon Tab
+                     Tabs Table TableBody TableFooter TableHeader
+                     TableHeaderColumn TableRow TableRowColumn TimePicker
+                     TextField Toggle Toolbar
                      ToolbarGroup ToolbarSeparator ToolbarTitle ]]
             [hcice.helpers :as helpers
-             :refer [info colors color Icon svg-icon svg-icons mui-theme material-class]]))
+             :refer [info colors color Icon svg-icon svg-icons
+                     mui-theme material-class]]))
 
 
 (defn vista-principal
@@ -28,6 +34,7 @@
         ]
        [:div.cuerpo
         [:div.barra
+         #_{:style {:display "none"}}
          {:on-click #(dispatch [:assoc-in [:drawer] true ])}
          [MuiThemeProvider
           {:muiTheme (mui-theme {:textColor (:indigoA400 colors) :primary1Color "green"})}
@@ -41,16 +48,17 @@
                       :initiallyOpen true
                       :primaryTogglesNestedList true
                       :nestedItems
-                      ;[(as-element [ListItem {:key 1 :primaryText "sub1"}])
-                      ; (as-element [ListItem {:key 2 :primaryText "sub2"}])
-                      ; (as-element [ListItem {:key 3 :primaryText "sub3"}])
-                      ;(as-element [ListItem {:key 4 :primaryText "sub4"}])
-                      (into [] (for [x (range 1 10)]
-                                 ^{:key x} (as-element [ListItem {:key x :primaryText (str "sub" x)}])))
-                      }] ]]]]
+                      (into []
+                            (for [x (range 1 10)]
+                              ^{:key x}
+                              (as-element
+                                [ListItem
+                                 {:key x
+                                  :on-click
+                                  #(dispatch [:assoc-in [:drawer] false])
+                                  :primaryText (str "sub" x)}]))) }] ]]]]
         [:div.contenido
-         "Contenido"
-         ]
+         "Contenido extra" ]
         ]])))
 
 
