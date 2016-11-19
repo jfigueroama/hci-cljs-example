@@ -22,8 +22,46 @@
              :refer [info colors color Icon svg-icon svg-icons
                      mui-theme material-class]]))
 
+(defn enombre
+  []
+  (let [db (subscribe [:db])]
+    (fn []
+      [:span
+       [:span {:style {:color "green"}} (:nombre @db)]
+       [:br]
+       [:input#inombre {:value (:nombre @db)
+                        :on-change
+                        (fn click-hn [evt]
+                          (dispatch
+                            [:assoc-in
+                             [:nombre]
+                             (-> evt (.-target) (.-value)) ]))}]])))
 
 (defn vista-principal
+  []
+  [:div
+   [:div {:style {
+                  :background-color "cyan"
+                  :width "200px"
+                  :border "1px solid red" }}
+    [:strong "Hola a todos"]
+    [:br]
+    [:textarea "Contenido inicial"]]
+   [:div {:style {
+                  :background-color "lightgray"}}
+    "Ahora si, va el contenido interesante "
+    [enombre] [:br]
+    [MuiThemeProvider
+     {:muiTheme (mui-theme {:textColor (:indigoA400 colors)
+                            :primary1Color "green"})}
+      [FlatButton {:label "Hola"
+                     :rippleColor "blue"
+                     :style {:text-decoration "line-through"}
+                     :on-click
+                     #(dispatch [:assoc-in [:nombre] "Otro nombre"])}]
+     ]  ]])
+
+#_(defn vista-principal
   []
   (let [seccion (subscribe [:seccion])
         drawer (subscribe [:drawer])]

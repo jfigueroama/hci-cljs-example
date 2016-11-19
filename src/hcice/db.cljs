@@ -2,4 +2,7 @@
 
 (def db
   {:seccion :intro
-   :drawer true})
+   :drawer true
+   :nombre "Jose"
+   :otro "muchas gracisa"
+   })
