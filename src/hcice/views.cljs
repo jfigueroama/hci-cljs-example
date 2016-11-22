@@ -40,10 +40,11 @@
 (defn vista-principal
   []
   [:div
+   [:span "Contenido nuevo"]
    [:div {:style {
                   :background-color "cyan"
                   :width "200px"
-                  :border "1px solid red" }}
+                  :border "1px solid red"}} 
     [:strong "Hola a todos"]
     [:br]
     [:textarea "Contenido inicial"]]
@@ -58,8 +59,8 @@
                      :rippleColor "blue"
                      :style {:text-decoration "line-through"}
                      :on-click
-                     #(dispatch [:assoc-in [:nombre] "Otro nombre"])}]
-     ]  ]])
+                     #(dispatch [:assoc-in [:nombre] "Otro nombre"])}]]]])
+       
 
 #_(defn vista-principal
   []

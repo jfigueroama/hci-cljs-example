@@ -11,18 +11,13 @@
    db))
 
 (re-frame/reg-event-db
-  :cambiar
-  (fn [_ [_ ndb]] ndb)) 
-
-(re-frame/reg-event-db
   :assoc-in
   (fn [db [_ path valor]]
     (assoc-in db path valor)))
 
-
 (re-frame/reg-event-db
- :seleccionar-seccion
- (fn  [db [_ kseccion]]
-   (assoc db :seccion kseccion)))
+  :update-in
+  (fn [db [_ path vfn]]
+    (update-in db path vfn)))
 
 
