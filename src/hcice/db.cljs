@@ -3,6 +3,6 @@
 (def db
   {:seccion :intro
    :drawer true
-   :nombre "Jose"
+   :nombre "Pepe"
    :otro "muchas gracisa"
    })

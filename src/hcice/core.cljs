@@ -20,8 +20,6 @@
             [hcice.events] [hcice.db] [hcice.subs]
             [hcice.views :as views :refer [hola vista-principal]]))
 
-(defn hola [x] (str "hola " x))
-
 (defn mount-root []
   (reagent/render [vista-principal]
                   (.getElementById js/document "app")))
