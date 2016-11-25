@@ -29,16 +29,26 @@
 (defcard-rg objeto-reagent
   "documentacion"
   (fn [state _]
-    [:div [:strong "Hola desde reagent: "] [:br]
+    [:div [:strong "Hola desde reagent :-O "] [:br]
           [:i {:on-click #(swap! state update :contador inc)}
            "Contador (click aqui para aumentar):" (:contador @state) ]
+          [:br]
           [MuiThemeProvider
            {:muiTheme (mui-theme {:textColor (:indigoA400 colors)
                                   :primary1Color "green"})}
-           [FlatButton {:label "Resetear a 0"
-                        :rippleColor "blue"
-                        :style {}
-                        :on-click #(reset! state (assoc @state :contador 0))}]] ])
+           [:div
+            [FlatButton {:label "Resetear a 0"
+                         :rippleColor "blue"
+                         :style {}
+                         :on-click #(reset! state (assoc @state :contador 0))}]
+            [FlatButton {:label "Incrementar"
+                         :rippleColor "yellow"
+                         :style {}
+                         :on-click #(swap! state update :contador inc)}]
+            [FlatButton {:label "Decrementar"
+                         :rippleColor "red"
+                         :style {}
+                         :on-click #(swap! state update :contador dec)}] ]] ])
   (reagent/atom {:contador 1})
   {:inspect-data true
    :history true})
