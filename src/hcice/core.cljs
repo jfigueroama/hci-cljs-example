@@ -17,15 +17,20 @@
                      ToolbarGroup ToolbarSeparator ToolbarTitle]]
             [hcice.helpers :as helpers
              :refer [info colors color Icon svg-icon svg-icons]]
-            [hcice.events] [hcice.db] [hcice.subs]
-            [hcice.views :as views :refer [hola vista-principal]]))
+            [hcice.events] [hcice.db] [hcice.subs] [hcice.devcards]
+            [hcice.views :as views :refer [vista-principal]]))
+
+(enable-console-print!)
 
 (defn mount-root []
   (reagent/render [vista-principal]
                   (.getElementById js/document "app")))
 
 (defn ^:export init []
-      (do
-        (devtools/install!)
-        (re-frame/dispatch-sync [:inicializar-db])
-        (mount-root)))
+  (if-let [node (.getElementById js/document "app")]
+    (do
+      (devtools/install!)
+      (re-frame/dispatch-sync [:inicializar-db])
+      (mount-root))))
+
+(init)

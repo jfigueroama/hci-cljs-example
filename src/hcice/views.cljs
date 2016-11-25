@@ -159,8 +159,8 @@
                     :hoverColor "#FF0000"
                     } :flight_takeoff]
              ]]
-           [SvgIcon {:color (:red500 colors) :hoverColor (:blue500 colors)}
-            [:path {:d "M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"}] ]
+           ;;[SvgIcon {:color (:red500 colors) :hoverColor (:blue500 colors)}
+           ;; [:path {:d "M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"}] ]
 
            [(svg-icon :ContentAdd) {:color (:red500 colors) :hoverColor (:blue500 colors)}]
            [FloatingActionButton {:mini true :secondary true :href "nueva"}
